@@ -8,6 +8,13 @@ app.use(cors());
 app.use(express.json());
 const port = 4000;
 mongoose.connect('mongodb+srv://03003373096z:zain123@cluster0.w0b1b6s.mongodb.net/todo?retryWrites=true&w=majority&appName=Cluster0')
+.then(()=>{
+    console.log("Connected to MongoDB");
+})
+.catch((err)=>{
+    console.log("Error connecting to MongoDB", err);
+}
+)
 
 app.post('/signup',(req,res)=>{
     userModel.create(req.body)
